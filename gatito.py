@@ -5,20 +5,14 @@ import os
 
 # Función jugar de nuevo
 def jugar_nuevo():
-    jugar_gato = input("¿Quieres jugar de nuevo?")
+    jugar_gato = input("¿Quieres jugar de nuevo? ")
     while jugar_gato not in ["Sí", "Si", "sí", "si", "No", "no"]:
-        jugar_gato = input("No entendi :(. ¿Quieres jugar de nuevo? ")
+        jugar_gato = input("No entendi :(. ¿Quieres jugar de nuevo? ").lower()
     if jugar_gato.lower() == "sí" or "si":
         return True
     else:
         return False
 
-# Board
-tablero = [
-    [" ", " ", " "], 
-    [" ", " ", " "],
-    [" ", " ", " "]
-]
 
 # Displaying the board
 def display(tablero):
@@ -61,7 +55,13 @@ def gatito():
     circles = "o"
     exes = "x"
     ocupado = []
-    winner = check_win(tablero)
+    winner = None
+    # Board
+    tablero = [
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "]
+        ]
     while winner is None:
         player1_sym = input(f"Jugador1 ¿Quién quieres ser hoy {circles} or {exes}\n").lower()
         if player1_sym not in ["x", "o"]:
@@ -103,7 +103,7 @@ def gatito():
 # Start playing
 
 def play_ttt():
-    print("Hola! Bienvenidx al Juego del Gatito")
+    print("Hola! Bienvenidx al Juego del Gatito\n")
     print("   \o/  \n"
           "    |   \n"
           "   / \   \n")
@@ -115,14 +115,8 @@ def play_ttt():
 
     play = True
     while play:
-        tablero = [
-            [" ", " ", " "],
-            [" ", " ", " "],
-            [" ", " ", " "]
-        ]
         gatito()
         play = jugar_nuevo()
-        display(tablero)
     print("Gracias por jugar! Bye!")
     print("   \o/  \n"
           "    |   \n"
