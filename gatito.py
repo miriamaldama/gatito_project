@@ -85,6 +85,10 @@ def gatito():
                 display(tablero)
                 print(f"Jugador {winner}. Has ganado!")
                 return
+            if count == limit:
+                print("Empate! No hay ganador!")
+                display(tablero)
+                return
             display(tablero)
             print("Jugador 2.\n")
             tiro2 = get_player_move()
@@ -98,6 +102,10 @@ def gatito():
             if winner in [circles, exes]:
                 display(tablero)
                 print(f"Jugador {winner}. Has ganado!")
+                return
+            if count == limit:
+                print("Empate! No hay ganador!")
+                display(tablero)
                 return
 
 # Start playing
